@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   get 'admins/update_role/:user_id/:role_id', to: 'admins#update_role', as: 'admins_update_role'
   get 'admins/index'
 
+  resources :auctionlistings
 
-
-  resources :auctionlistings, only: :index
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
