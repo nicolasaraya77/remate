@@ -1,0 +1,32 @@
+<h1>Auctionnotices#index</h1>
+<p>Find me in app/views/auctionnotices/index.html.erb</p>
+
+
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Auction</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auctionnotices.each do |auctionnotice| %>
+
+      <tr>
+        <td><%= auctionnotice.auction %></td>
+
+        <td>
+          <%= link_to 'Show', auctionnotice %>
+          <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
+          <%= link_to 'Destroy', auctionnotice, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Seleccionar', action_selection_path(auctionnotice), method: :post %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auctionnotice', new_auctionnotice_path %>

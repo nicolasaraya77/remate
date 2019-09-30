@@ -1,0 +1,31 @@
+<h1> Auction Notice pendientes </h1>
+
+
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Auction</th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @auctionnotices.each_with_index do |auctionnotice, i| %>
+
+      <tr>
+        <td><%= i %></td>
+        <td><%= auctionnotice.auction %></td>
+
+        <td>
+
+          <%= link_to 'Show', auctionnotice %>
+          <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
+          <%= link_to 'Destroy', auctionnotice, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Seleccionar', action_selection_path(auctionnotice), method: :post %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

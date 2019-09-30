@@ -1,0 +1,34 @@
+<%= form_with model: NoticeSelection.new, local: true do |form| %>
+  <%= form.label :name, "Seleccion de Avisos de Remate" %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hour %>
+    <%= form.text_field :hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warranty %>
+    <%= form.text_field :warranty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fee %>
+    <%= form.text_field :fee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+
+
+
+ <%= form.submit "Guardar" %>
+
+<% end %>

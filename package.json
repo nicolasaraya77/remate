@@ -1,5 +1,8 @@
 {
   "name": "remate",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "datatables.net-bs4": "^1.10.19",
+    "jquery-backstretch": "^2.1.17"
+  }
 }

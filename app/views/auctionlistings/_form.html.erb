@@ -1,17 +1,17 @@
-<%= form_with model: @auctionlisting, local: true do |form| %>
+<%= form_with model: Auctionlisting.new, local: true do |form| %>
   <%= form.label :name, "Ingreso de Listado de Remate en doc." %>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :listingdoc, id: :name %>
+    <%= form.text_field :name, id: :name %>
   </div>
 
   <div class="field">
     <%= form.label :attached %>
-    <%= form.file_field :listingdoc, id: :auctionlisting_listingdoc %>
+    <%= form.file_field :attached, id: :auctionlisting_listingdoc %>
   </div>
 
 
  <%= form.submit "subir" %>
- 
+
 <% end %>

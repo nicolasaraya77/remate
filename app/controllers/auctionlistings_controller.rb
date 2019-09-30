@@ -13,6 +13,7 @@ class AuctionlistingsController < ApplicationController
   def create
     @auctionlisting = Auctionlisting.new(auctionlisting_params)
     @auctionlisting.save
+    @auctionlisting.separation_paragraphs
     redirect_to auctionlistings_path
   end
 
@@ -35,11 +36,9 @@ class AuctionlistingsController < ApplicationController
   private
 
   def auctionlisting_params
-    params.require(:auctionlisting).permit(:name)
+    params.require(:auctionlisting).permit(:name, :attached)
   end
 
-  #def find_auctionlisting
-    #@auctionlisting = Auctionlisting.find(params[:id])
-  #end
+
 
 end

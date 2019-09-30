@@ -1,0 +1,28 @@
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Selection Auction</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notice_selections.each do |notice_selection| %>
+
+      <tr>
+        <td><%= notice_selection.auction %></td>
+
+        <td>
+          <%= link_to 'Show', notice_selection %>
+          <%= link_to 'Edit', edit_notice_selection_path(notice_selection) %>
+          <%= link_to 'Destroy', notice_selection, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Seleccionar', auctionnotice_notice_selections(notice_selection) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  <%= link_to 'New Auctionnotice', new_auctionnotice_path %>

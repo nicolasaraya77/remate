@@ -1,0 +1,26 @@
+<h1> Avisos descartados </h1>
+
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Auction</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auctionnotices.each do |auctionnotice| %>
+
+      <tr>
+        <td><%= auctionnotice.auction %></td>
+
+        <td>
+          <%= link_to 'Show', auctionnotice %>
+          <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
+          <%= link_to 'Destroy', auctionnotice, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Seleccionar', new_notice_selection_path %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
