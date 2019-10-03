@@ -1,0 +1,28 @@
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Seleccionar Provincia</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @provinces.each do |province| %>
+
+      <tr>
+        <td><%= province.name %></td>
+        <td><%= province.region.name %></td>
+
+        <td>
+          <%= link_to 'Show', province %>
+          <%= link_to 'Edit', edit_province_path(province) %>
+          <%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  <%= link_to 'Nueva Provincia', new_province_path %>

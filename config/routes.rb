@@ -18,6 +18,12 @@ Rails.application.routes.draw do
     resources :notice_selections
   end
 
+  resources :realties
+
+  resources :communes
+  resources :provinces
+  resources :regions
+
     resources :notice_selections
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

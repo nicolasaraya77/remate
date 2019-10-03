@@ -1,0 +1,16 @@
+<%= form_with model: Province.new, local: true do |form| %>
+  <%= form.label :name, "Ingreso de nueva Provincia" %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :region_id %>
+    <%= form.select :region_id, options_for_select(Region.all.collect {|p| [p.name, p.id]}, { include_blank: "Seleccione"}) %>
+  </div>
+
+ <%= form.submit "Guardar" %>
+
+<% end %>

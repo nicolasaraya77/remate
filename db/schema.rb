@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_231533) do
+ActiveRecord::Schema.define(version: 2019_10_02_223207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2019_09_25_231533) do
     t.integer "status", default: 0
   end
 
+  create_table "communes", force: :cascade do |t|
+    t.string "name"
+    t.integer "province_id"
+    t.integer "region_id"
+    t.integer "cod_treasury"
+    t.integer "conara_sii"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notice_selections", force: :cascade do |t|
     t.text "auction"
     t.datetime "created_at", null: false
@@ -38,6 +48,40 @@ ActiveRecord::Schema.define(version: 2019_09_25_231533) do
     t.integer "warranty"
     t.string "name"
     t.float "fee"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.integer "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "realties", force: :cascade do |t|
+    t.integer "commune_id"
+    t.string "street"
+    t.integer "number_unit"
+    t.string "unit_estate"
+    t.integer "street_type_id"
+    t.string "population_villa"
+    t.integer "condominium_id"
+    t.integer "property_type"
+    t.integer "apple"
+    t.integer "property"
+    t.text "name_realty"
+    t.integer "latitude"
+    t.integer "longitude"
+    t.float "mt2_land"
+    t.float "mt2_built"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.integer "number_region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

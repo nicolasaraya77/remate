@@ -1,0 +1,29 @@
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Listado de Comunas</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @communes.each do |commune| %>
+
+      <tr>
+        <td><%= commune.name %></td>
+        <td><%= commune.province.name %></td>
+        <td><%= commune.province.region.name %></td>
+
+        <td>
+          <%= link_to 'Show', commune %>
+          <%= link_to 'Edit', edit_commune_path(commune) %>
+          <%= link_to 'Destroy', commune, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  <%= link_to 'Nueva Comuna', new_commune_path %>

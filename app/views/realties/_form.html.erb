@@ -1,0 +1,40 @@
+<%= form_with model: Realty.new, local: true do |form| %>
+  <%= form.label :name, "Ingreso de Propiedad." %>
+
+  <div class="field">
+    <%= form.label :street_type_id %>
+    <%= form.select :street_type_id, options_for_select([["Calle", 0],["Avenida", 1], ["Pasaje", 2]]), {include_blank: "Seleccione"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :property_type %>
+    <%= form.select :property_type_id, options_for_select([["Casa", 0],["Dpto.", 1],["Local", 2]]), {include_blank: "Seleccione"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_unit %>
+    <%= form.number_field :number_unit, id: :number_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_estate %>
+    <%= form.text_field :unit_estate, id: :unit_estate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :commune_id %>
+    <%= form.select :commune_id, options_for_select(Commune.all.collect {|p| [p.name, p.id]}, { include_blank: "Seleccione"}) %> %>
+  </div>
+
+ <%= form.submit "Ingresar" %>
+
+<% end %>
+
+
+
+:street, :number, :commune_id, :property_type, :population_villa, :unit_estate, :apple, :property, :latitude, :longitude

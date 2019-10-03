@@ -1,0 +1,16 @@
+<%= form_with model: Commune.new, local: true do |form| %>
+  <%= form.label :name, "Ingreso de nueva Comuna" %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :province_id %>
+    <%= form.select :province_id, options_for_select(Province.all.collect {|p| [p.name, p.id]}, { include_blank: "Seleccione"}) %>
+  </div>
+
+ <%= form.submit "Guardar" %>
+
+<% end %>

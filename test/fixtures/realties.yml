@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commune_id: 1
+  street: MyString
+  number_unit: 1
+  unit_estate: MyString
+  street_type_id: 1
+  population_villa: MyString
+  condominium_id: 1
+  property_type: 1
+  apple: 1
+  property: 1
+  name_realty: MyText
+  latitude: 1
+  longitude: 1
+  mt2_land: 1.5
+  mt2_built: 1.5
+
+two:
+  commune_id: 1
+  street: MyString
+  number_unit: 1
+  unit_estate: MyString
+  street_type_id: 1
+  population_villa: MyString
+  condominium_id: 1
+  property_type: 1
+  apple: 1
+  property: 1
+  name_realty: MyText
+  latitude: 1
+  longitude: 1
+  mt2_land: 1.5
+  mt2_built: 1.5

@@ -1,0 +1,28 @@
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Seleccionar Region</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regions.each do |region| %>
+
+      <tr>
+        <td><%= region.name %></td>
+        <td><%= region.number_region %></td>
+
+        <td>
+          <%= link_to 'Show', region %>
+          <%= link_to 'Edit', edit_region_path(region) %>
+          <%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  <%= link_to 'Nueva Region', new_region_path %>

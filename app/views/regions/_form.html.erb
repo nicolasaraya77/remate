@@ -1,0 +1,17 @@
+<%= form_with model: Region.new, local: true do |form| %>
+  <%= form.label :name, "Ingreso de nueva Region" %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_region %>
+    <%= form.number_field :number_region, id: :number_region %>
+  </div>
+
+
+ <%= form.submit "Guardar" %>
+
+<% end %>
