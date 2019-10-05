@@ -7,11 +7,11 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
        user ||= User.new # guest user (not logged in)
-       can :read, [Auctionlisting, Auctionnotice, NoticeSelection]
+       can :read, [Auctionlisting, Auctionnotice, NoticeSelection, Realty, Commune, Province, Region]
        if user.admin?
          can :manage, :all
        elsif user.analyzer?
-         can :manage, [Auctionlisting, Auctionnotice, NoticeSelection]
+         can :manage, [Auctionlisting, Auctionnotice, NoticeSelection, Realty, Commune, Province, Region]
        else
          can :read, :all
        end

@@ -12,7 +12,7 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'cancancan'
 # Use jQuery
 gem 'docx'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 

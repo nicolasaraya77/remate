@@ -11,12 +11,13 @@
 
       <tr>
         <td><%= province.name %></td>
-        <td><%= province.region.name %></td>
+        <td><%= province.region_id %></td>
 
         <td>
           <%= link_to 'Show', province %>
           <%= link_to 'Edit', edit_province_path(province) %>
           <%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
 
       </tr>
     <% end %>
@@ -25,4 +26,17 @@
 
 <br>
 
+<div>
   <%= link_to 'Nueva Provincia', new_province_path %>
+</div>
+
+<p> </p>
+
+<div>
+  <%= link_to 'Ir a Region', regions_path %>
+</div>
+<p> </p>
+
+<div>
+  <%= link_to 'Ir a Comuna', communes_path %>
+</div>

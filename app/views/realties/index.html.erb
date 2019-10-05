@@ -1,27 +1,44 @@
+<%= link_to 'Ir a Listado Avisos', auctionnotices_path %>
+
+
+<h1>Listado de Propiedades</h1>
+<div id="realties">
+
 <table id="myTable" class="table">
   <thead>
     <tr>
-      <th>Seleccionar Propiedad</th>
-
+      <th>Direccion</th>
+      <th>Opciones</th>
     </tr>
   </thead>
+
 
   <tbody>
     <% @realties.each do |realty| %>
 
       <tr>
-        <td><%= realty.street + " " + (realty.number_unit).to_s + " " + realty.unit_estate+ " " + (realty.commune_id).to_s %></td>
+
+        <td>
+        <%= realty.street + " " + (realty.number_unit).to_s + " " + realty.unit_estate+ " " + (realty.commune_id).to_s %>
+        </td>
+
 
         <td>
           <%= link_to 'Show', realty %>
           <%= link_to 'Edit', edit_realty_path(realty) %>
           <%= link_to 'Destroy', realty, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+</div>
+
 <br>
 
   <%= link_to 'Nueva Propiedad', new_realty_path %>
+
+  <p></p>
+
+  <%= link_to 'Ir a Comuna', communes_path %>

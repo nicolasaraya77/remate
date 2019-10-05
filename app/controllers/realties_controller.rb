@@ -3,7 +3,7 @@ class RealtiesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @realtys = Realty.all
+      @realties = Realty.all
   end
 
   def new
