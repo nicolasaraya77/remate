@@ -12,7 +12,8 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'cancancan'
 # Use jQuery
 gem 'docx'
-
+gem 'geocoder'
+gem 'gmaps4rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 

@@ -2,13 +2,13 @@
   <%= form.label :name, "Ingreso de Propiedad." %>
 
   <div class="field">
-    <%= form.label :street_type_i, "Tipo de Calle" %>
-    <%= form.select :street_type_id, options_for_select([["Calle", 0],["Avenida", 1], ["Pasaje", 2]]), {include_blank: "Seleccione"} %>
+    <%= form.label :street_type_id, "Tipo de Calle" %>
+    <%= form.select :street_type_id, options_for_select([["Calle", 0],["Avenida", 1], ["Pasaje", 2], ["Camino", 3]]), {include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">
-    <%= form.label :property_type, "Tipo de Propiedad" %>
-    <%= form.select :property_type_id, options_for_select([["Casa", 0],["Dpto.", 1],["Local", 2]]), {include_blank: "Seleccione"} %>
+    <%= form.label :type_property_id, "Tipo de Propiedad" %>
+    <%= form.select :type_property_id, options_for_select([["Casa", 0],["Dpto.", 1],["Local", 2], ["Oficina", 3], ["Bodega", 4], ["Sitio", 5], ["Box", 6], ["Parcela", 7]]), {include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">
@@ -34,7 +34,3 @@
  <%= form.submit "Ingresar" %>
 
 <% end %>
-
-
-
-:street, :number, :commune_id, :property_type, :population_villa, :unit_estate, :apple, :property, :latitude, :longitude

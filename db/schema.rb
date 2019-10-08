@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_191345) do
+ActiveRecord::Schema.define(version: 2019_10_07_222420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,12 +69,12 @@ ActiveRecord::Schema.define(version: 2019_10_04_191345) do
     t.integer "apple"
     t.integer "property"
     t.text "name_realty"
-    t.integer "latitude"
-    t.integer "longitude"
     t.float "mt2_land"
     t.float "mt2_built"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -94,6 +94,9 @@ ActiveRecord::Schema.define(version: 2019_10_04_191345) do
     t.datetime "updated_at", null: false
     t.integer "role", default: 4
     t.string "name"
+    t.float "Latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

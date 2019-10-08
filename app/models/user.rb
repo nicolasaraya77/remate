@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum role: [:admin, :analyzer, :lawyer, :appraiser, :visit]
 
-
-   enum role: [:admin, :analyzer, :lawyer, :appraiser, :visit]
+  geocoded_by :address
+  after_validation :geocode
 end

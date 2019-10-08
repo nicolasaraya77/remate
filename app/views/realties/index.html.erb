@@ -1,5 +1,40 @@
 <%= link_to 'Ir a Listado Avisos', auctionnotices_path %>
 
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script>
+
+handler = Gmaps.build('Google');
+handler.buildMap({
+    provider: {
+      center: new google.maps.LatLng({lat: -33.43, lng: -70.65 }),
+      zoom: 14
+    },
+    internal: {
+      id: 'map'
+    }
+  }, function(){
+  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+  google.maps.event.addListener(handler.getMap(), "click", function(){
+    console.log("hola");
+
+    });
+  google.maps.event.addListener(handler.getMap(), 'center_changed', function(){
+    var latitude = handler.getMap().getCenter().lat();
+    var longitude = handler.getMap().getCenter().lng();
+    $.ajax({
+      url: '/realties',
+      type: 'GET',
+      dataType: 'script',
+      data: {latitude: latitude, longitude: longitude}
+    })
+  });
+}
+);
+</script>
+
 
 <h1>Listado de Propiedades</h1>
 <div id="realties">
@@ -8,28 +43,15 @@
   <thead>
     <tr>
       <th>Direccion</th>
+      <th>Departamento/Oficina</th>
       <th>Opciones</th>
     </tr>
   </thead>
 
 
-  <tbody>
-    <% @realties.each do |realty| %>
+  <tbody id="realties-xyz">
+    <%= render @realties %>
 
-      <tr>
-
-        <td>
-        <%= realty.street + " " + (realty.number_unit).to_s + " " + realty.unit_estate+ " " + (realty.commune_id).to_s %>
-        </td>
-
-
-        <td>
-          <%= link_to 'Show', realty %>
-          <%= link_to 'Edit', edit_realty_path(realty) %>
-          <%= link_to 'Destroy', realty, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 

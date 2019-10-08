@@ -3,11 +3,37 @@ class RealtiesController < ApplicationController
   load_and_authorize_resource
 
   def index
+=begin
+      if params[:latitude].present? && params[:longitude].present?
+        @realties = Realty.near(
+          [params[:latitude], params[:longitude]],
+          200,
+          units: :km
+        )
+      elsif current_user.present?
+        @realties = Realty.near(
+          current_user.address,
+          1000,
+          units: :km
+        )
+      else
+        @realties = Realty.all
+      end
+=end
       @realties = Realty.all
+      @hash = Gmaps4rails.build_markers(@realties) do |realty, marker|
+        marker.lat realty.latitude
+        marker.lng realty.longitude
+      end
+
   end
 
   def new
-    @realty = Realty.new
+      @realty = Realty.new
+      @hash = Gmaps4rails.build_markers(@realty) do |realty, marker|
+      marker.lat realty.latitude
+      marker.lng realty.longitude
+      end
   end
 
   def create
@@ -17,6 +43,11 @@ class RealtiesController < ApplicationController
   end
 
   def show
+       @realty = Realty.find(params[:id])
+      @hash = Gmaps4rails.build_markers(@realty) do |realty, marker|
+      marker.lat realty.latitude
+      marker.lng realty.longitude
+    end
   end
 
   def edit
@@ -32,10 +63,14 @@ class RealtiesController < ApplicationController
     redirect_to realties_path
   end
 
+  def address
+
+  end
+
   private
 
   def realty_params
-    params.require(:realty).permit(:street, :number_unit, :commune_id, :property_type, :population_villa, :unit_estate, :apple, :property, :latitude, :longitude )
+    params.require(:realty).permit(:street, :number_unit, :commune_id, :property_type, :population_villa, :unit_estate, :apple, :property, :latitude, :longitude, :address, :street_type_id, :type_property_id)
   end
 
 
