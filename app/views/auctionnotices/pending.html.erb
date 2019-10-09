@@ -1,6 +1,7 @@
 <%= link_to 'Listado Avisos Seleccionados', auctionnotices_selected_path %>
+<%= link_to 'Listado Avisos Descartados', auctionnotices_rejected_path %>
 
-<h1> Auction Notice pendientes </h1>
+<h1>  Avisos de Remate Pendientes </h1>
 
 
 <table id="myTable" class="table">
@@ -8,7 +9,7 @@
     <tr>
       <th></th>
       <th>Auction</th>
-      <th></th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -17,15 +18,15 @@
     <% @auctionnotices.each_with_index do |auctionnotice, i| %>
 
       <tr>
-        <td><%= i %></td>
+        <td><%= i + 1 %></td>
         <td><%= auctionnotice.auction %></td>
 
         <td>
 
           <%= link_to 'Show', auctionnotice %>
           <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
-          <%= link_to 'Destroy', auctionnotice, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to 'Seleccionar', action_selection_path(auctionnotice), method: :post %>
+          <%= link_to 'Descartar', rejection_path(auctionnotice), method: :post %>
+          <%= link_to 'Seleccionar', action_selection_path(auctionnotice), method: :patch %>
         </td>
       </tr>
     <% end %>
@@ -33,3 +34,4 @@
 </table>
 
 <%= link_to 'Listado Avisos Seleccionados', auctionnotices_selected_path %>
+<%= link_to 'Listado Avisos Descartados', auctionnotices_rejected_path %>

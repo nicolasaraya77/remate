@@ -9,7 +9,7 @@ class Realty < ApplicationRecord
     after_validation :geocode
 
     def address
-      "#{self.property_type} #{self.street} #{(self.number_unit).to_s},  #{self.commune.name}"
+      "#{self.street} #{(self.number_unit).to_s},  #{self.commune.name}"
     end
 
     private

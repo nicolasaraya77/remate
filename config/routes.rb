@@ -4,16 +4,21 @@ Rails.application.routes.draw do
   get 'admins/update_role/:user_id/:role_id', to: 'admins#update_role', as: 'admins_update_role'
   get 'admins/index'
 
-  devise_for :users, controllers: {
+  # devise_for :users, controllers: {{     }
+  #   registrations: 'users/registrations'}
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks",
     registrations: 'users/registrations'
   }
 
+
   resources :auctionlistings
 
-  post 'auctionnotice/:id', to: 'auctionnotices#action_selection', as: 'action_selection'
+  post 'auctionnotice/:id', to: 'auctionnotices#action_rejection', as: 'rejection'
   get 'auctionnotices/pending'
   get 'auctionnotices/selected'
   get 'auctionnotices/rejected'
+  patch 'auctionnotice/:id', to: 'auctionnotices#action_selection', as: 'action_selection'
 
   resources :auctionnotices do
     resources :notice_selections
