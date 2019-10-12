@@ -33,8 +33,8 @@ class AuctionnoticesController < ApplicationController
   end
 
   def action_selection
-      a = Auctionnotice.find(params[:id])
-      a.update(status: 1)
+      auction = Auctionnotice.find(params[:id])
+      auction.update(status: 1)
       redirect_to auctionnotices_selected_path
   end
 
@@ -51,10 +51,11 @@ class AuctionnoticesController < ApplicationController
   end
 
   def action_rejection
-      b = Auctionnotice.find(params[:id])
-      b.update(status: 2)
+      auction = Auctionnotice.find(params[:id])
+      auction.update(status: 2)
       redirect_to auctionnotices_rejected_path
   end
+
 
   private
 

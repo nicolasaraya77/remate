@@ -1,0 +1,92 @@
+<%= link_to 'Listado Avisos Seleccionados', auctionnotices_selected_path %>
+<%= link_to 'Listado Tribunales', courts_path %>
+
+<h1>  Asociar Aviso de Remate a Propiedad </h1>
+
+<%= form_with model: Realty.new  do |form| %>
+  <%= form.label :name, "Seleccion de Avisos de Remate" %>
+
+  <div class="field">
+    <%= form.label :date, "Fecha" %>
+    <%= form.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hour, "Hora" %>
+    <%= form.text_field :hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warranty, "Garantia" %>
+    <%= form.text_field :warranty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fee, "Derechos" %>
+    <%= form.text_field :fee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :court_id, "Seleccionar Tribunal" %>
+    <%= form.select :court_id, options_for_select(Court.all.collect {|p| [p.name, p.id]}), { include_blank: "Seleccione"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lyrics, "Letra" %>
+    <%= form.text_field :lyrics, id: :lyrics %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number, "Rol" %>
+    <%= form.number_field :number, id: :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year, "Año" %>
+    <%= form.number_field :year, id: :year %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :realty_id, "Seleccionar Propiedad" %>
+    <%= form.select :realty_id, options_for_select(Realty.all.collect {|p| [p.address, p.id]}), { include_blank: "Seleccione"} %>
+  </div>
+
+
+ <%= form.submit "Guardar" %>
+
+<% end %>
+
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Auction</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @auctionnotices.each do |auctionnotice| %>
+
+      <tr>
+        <td><%= auctionnotice.id %></td>
+        <td><%= auctionnotice.auction %></td>
+
+        <td>
+
+          <%= link_to 'Show', auctionnotice %>
+          <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
+          <%= link_to 'Descartar', rejection_path(auctionnotice), method: :post %>
+          <%= link_to 'Seleccionar', action_selection_path(auctionnotice), method: :patch %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

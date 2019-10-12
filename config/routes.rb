@@ -14,11 +14,15 @@ Rails.application.routes.draw do
 
   resources :auctionlistings
 
-  post 'auctionnotice/:id', to: 'auctionnotices#action_rejection', as: 'rejection'
+  post 'auctionnotice/:id/reject', to: 'auctionnotices#action_rejection', as: 'rejection'
   get 'auctionnotices/pending'
   get 'auctionnotices/selected'
   get 'auctionnotices/rejected'
-  patch 'auctionnotice/:id', to: 'auctionnotices#action_selection', as: 'action_selection'
+  post 'auctionnotice/:id/select', to: 'auctionnotices#action_selection', as: 'action_selection'
+
+  get 'auctionnotices/auctionnotice_associate'
+  get 'auctionnotice/:id/auctionnotice_associate', to: 'auctionnotices#auctionnotice_associate', as: 'auctionnotice_associate'
+
 
   resources :auctionnotices do
     resources :notice_selections
@@ -29,6 +33,8 @@ Rails.application.routes.draw do
   resources :communes
   resources :provinces
   resources :regions
+
+  resources :courts
 
     resources :notice_selections
 

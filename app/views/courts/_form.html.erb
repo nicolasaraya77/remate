@@ -1,0 +1,33 @@
+<%= form_with model: Court.new do |form| %>
+  <%= form.label :name, "Ingreso de nuevo Tribunal" %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_field :rut, id: :rut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :phone %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :account %>
+    <%= form.number_field :account, id: :account %>
+  </div>
+
+
+ <%= form.submit "Guardar" %>
+
+<% end %>

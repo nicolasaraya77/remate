@@ -21,7 +21,7 @@
           <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
           <%= link_to 'Descartar', rejection_path(auctionnotice), method: :post %>
 
-           <%= link_to 'Asociar a Propiedad', new_notice_selection_path %>
+           <%= link_to 'Asociar a Propiedad', auctionnotices_auctionnotice_associate_path(auctionnotice) %>
             </td>
       </tr>
     <% end %>

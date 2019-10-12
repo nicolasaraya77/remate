@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_001540) do
+ActiveRecord::Schema.define(version: 2019_10_10_074338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_10_09_001540) do
     t.datetime "updated_at", null: false
     t.text "auction"
     t.integer "status", default: 0
+    t.bigint "realty_id"
+    t.index ["realty_id"], name: "index_auctionnotices_on_realty_id"
   end
 
   create_table "communes", force: :cascade do |t|
@@ -35,6 +37,16 @@ ActiveRecord::Schema.define(version: 2019_10_09_001540) do
     t.integer "region_id"
     t.integer "cod_treasury"
     t.integer "conara_sii"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courts", force: :cascade do |t|
+    t.string "name"
+    t.string "rut"
+    t.string "address"
+    t.string "phone"
+    t.integer "account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,8 +87,6 @@ ActiveRecord::Schema.define(version: 2019_10_09_001540) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.bigint "auctionnotice_id"
-    t.index ["auctionnotice_id"], name: "index_realties_on_auctionnotice_id"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -105,5 +115,5 @@ ActiveRecord::Schema.define(version: 2019_10_09_001540) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "realties", "auctionnotices"
+  add_foreign_key "auctionnotices", "realties"
 end

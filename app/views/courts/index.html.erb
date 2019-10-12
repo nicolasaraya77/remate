@@ -1,0 +1,36 @@
+<%= link_to 'Ir a Asociar Aviso a Propiedad', auctionnotices_auctionnotice_associate_path %>
+
+<table id="myTable" class="table">
+  <thead>
+    <tr>
+      <th>Seleccionar Tribunal</th>
+      <th>Nº Tribunal</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+
+
+
+  <tbody>
+    <% @courts.each do |court| %>
+
+      <tr>
+        <td><%= court.name %></td>
+        <td><%= court.rut %></td>
+        <td><%= court.address %></td>
+        <td><%= court.phone %></td>
+        <td><%= court.account %></td>
+
+          <%= link_to 'Show', court %>
+          <%= link_to 'Edit', edit_court_path(court) %>
+          <%= link_to 'Destroy', court, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  <%= link_to 'Nuevo Tribunal', new_court_path %>
