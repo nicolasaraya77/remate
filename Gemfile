@@ -14,9 +14,13 @@ gem 'cancancan'
 gem 'docx'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'activeadmin'
+gem 'rails-i18n'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
+gem 'chartkick'
+gem 'groupdate'
 # Use para ver diagrama pdf
 gem 'rails-erd', require: false, group: :development
 # Use SCSS for stylesheets

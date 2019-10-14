@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :posts
+
   enum role: [:admin, :analyzer, :lawyer, :appraiser, :visit]
 
   geocoded_by :address

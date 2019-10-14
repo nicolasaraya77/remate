@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :comments
+  resources :posts
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'geocoder/findaddress'
   get 'admins/update_role/:user_id/:role_id', to: 'admins#update_role', as: 'admins_update_role'
   get 'admins/index'
