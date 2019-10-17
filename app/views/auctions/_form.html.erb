@@ -3,7 +3,7 @@
 
 <h1>  Asociar Aviso de Remate a Propiedad </h1>
 
-<%= form_with model: Realty.new  do |form| %>
+<%= form_with model: Auction.new  do |form| %>
   <%= form.label :name, "Seleccion de Avisos de Remate" %>
 
   <div class="field">
@@ -16,10 +16,52 @@
     <%= form.text_field :hour %>
   </div>
 
+
+
+  <div class="card">
+  <div class="field">
+    <%= form.label :valorization, "Valorizacion" %>
+   <div>
+     <p></p>
+     <%= form.label :uf, "UF" %>
+    <%= form.radio_button :uf, "UF"  %>
+     <p></p>
+     <%= form.label :pesos, "Pesos" %>
+    <%= form.radio_button :pesos, "Pesos" %>
+    </div>
+  </div>
+  </div>
+
+  <div class="card">
+    <div class="card">
+      <div class="field"
+        <%= form.label :minimum, "Minimo Remate" %>
+        <%= form.label :uf, "UF" %>
+        <%= form.number_field :uf, id: :uf %>
+
+        <%= form.label :pesos, "Pesos" %>
+        <%= form.number_field :pesos, id: :pesos %>
+     </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :cost, "Costas" %>
+      <%= form.number_field :cost, id: :cost %>
+    </div>
+
+    <div class="field">
+      <%= form.label :total_minimum, "Total Minimo" %>
+      <%= form.number_field :total_minimum, id: :total_minimum %>
+    </div>
+  </div>
+
+
+
   <div class="field">
     <%= form.label :warranty, "Garantia" %>
     <%= form.text_field :warranty %>
   </div>
+
 
   <div class="field">
     <%= form.label :fee, "Derechos" %>
@@ -61,32 +103,3 @@
  <%= form.submit "Guardar" %>
 
 <% end %>
-
-<table id="myTable" class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Auction</th>
-      <th>Opciones</th>
-    </tr>
-  </thead>
-
-
-  <tbody>
-    <% @auctionnotices.each do |auctionnotice| %>
-
-      <tr>
-        <td><%= auctionnotice.id %></td>
-        <td><%= auctionnotice.auction %></td>
-
-        <td>
-
-          <%= link_to 'Show', auctionnotice %>
-          <%= link_to 'Edit', edit_auctionnotice_path(auctionnotice) %>
-          <%= link_to 'Descartar', rejection_path(auctionnotice), method: :post %>
-          <%= link_to 'Seleccionar', action_selection_path(auctionnotice), method: :patch %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

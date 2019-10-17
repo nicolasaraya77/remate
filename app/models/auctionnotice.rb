@@ -1,5 +1,6 @@
 class Auctionnotice < ApplicationRecord
 
+  has_many :auctions
   enum status: [:pending, :selected, :rejected]
 
   def self.created_by_day

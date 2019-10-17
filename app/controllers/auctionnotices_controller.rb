@@ -56,6 +56,7 @@ class AuctionnoticesController < ApplicationController
       redirect_to auctionnotices_rejected_path
   end
 
+ 
 
   private
 

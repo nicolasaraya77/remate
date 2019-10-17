@@ -24,13 +24,15 @@ Rails.application.routes.draw do
   get 'auctionnotices/rejected'
   post 'auctionnotice/:id/select', to: 'auctionnotices#action_selection', as: 'action_selection'
 
-  get 'auctionnotices/auctionnotice_associate'
-  get 'auctionnotice/:id/auctionnotice_associate', to: 'auctionnotices#auctionnotice_associate', as: 'auctionnotice_associate'
+
+  get 'auctionnotice/:id/auctions', to: 'auctionnotices#auctions', as: 'auctionnotice_auction'
 
 
   resources :auctionnotices do
-    resources :notice_selections
+      resources :auctions
   end
+
+  resources :auctions
 
   resources :realties
 
@@ -40,7 +42,6 @@ Rails.application.routes.draw do
 
   resources :courts
 
-    resources :notice_selections
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'auctionnotices#index'

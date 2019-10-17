@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-10-14
+  hour: 2019-10-14 21:14:54
+  cost: 1
+  minimun: 1
+  uf: 1.5
+  pesos: 1
+  total_minimum: 1.5
+  warranty: 1.5
+  fee: 1.5
+  name: MyString
+  lyrics: MyString
+  number: 1
+  year: 1
+  auctionnotice: one
+  realty: one
+  court: one
+
+two:
+  date: 2019-10-14
+  hour: 2019-10-14 21:14:54
+  cost: 1
+  minimun: 1
+  uf: 1.5
+  pesos: 1
+  total_minimum: 1.5
+  warranty: 1.5
+  fee: 1.5
+  name: MyString
+  lyrics: MyString
+  number: 1
+  year: 1
+  auctionnotice: two
+  realty: two
+  court: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_224929) do
+ActiveRecord::Schema.define(version: 2019_10_15_091050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,30 @@ ActiveRecord::Schema.define(version: 2019_10_13_224929) do
     t.index ["realty_id"], name: "index_auctionnotices_on_realty_id"
   end
 
+  create_table "auctions", force: :cascade do |t|
+    t.date "date"
+    t.time "hour"
+    t.integer "cost"
+    t.float "uf"
+    t.integer "pesos"
+    t.float "total_minimum"
+    t.float "warranty"
+    t.float "fee"
+    t.string "name"
+    t.string "lyrics"
+    t.integer "number"
+    t.integer "year"
+    t.bigint "auctionnotice_id"
+    t.bigint "realty_id"
+    t.bigint "court_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "minimum"
+    t.index ["auctionnotice_id"], name: "index_auctions_on_auctionnotice_id"
+    t.index ["court_id"], name: "index_auctions_on_court_id"
+    t.index ["realty_id"], name: "index_auctions_on_realty_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "post_id"
     t.text "content"
@@ -85,17 +109,6 @@ ActiveRecord::Schema.define(version: 2019_10_13_224929) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "notice_selections", force: :cascade do |t|
-    t.text "auction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "date"
-    t.time "hour"
-    t.integer "warranty"
-    t.string "name"
-    t.float "fee"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -120,7 +133,6 @@ ActiveRecord::Schema.define(version: 2019_10_13_224929) do
     t.integer "street_type_id"
     t.string "population_villa"
     t.integer "condominium_id"
-    t.integer "property_type"
     t.integer "apple"
     t.integer "property"
     t.text "name_realty"
@@ -130,6 +142,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_224929) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "type_property_id"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -159,6 +172,9 @@ ActiveRecord::Schema.define(version: 2019_10_13_224929) do
   end
 
   add_foreign_key "auctionnotices", "realties"
+  add_foreign_key "auctions", "auctionnotices"
+  add_foreign_key "auctions", "courts"
+  add_foreign_key "auctions", "realties"
   add_foreign_key "comments", "posts"
   add_foreign_key "posts", "users"
 end

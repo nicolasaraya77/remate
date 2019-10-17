@@ -1,9 +1,9 @@
 document.addEventListener('turbolinks:before-cache', function(){
-   $('#myTable').DataTable().destroy();
+  // $('#myTable').DataTable().destroy();
 })
 
 document.addEventListener('turbolinks:load', function(){
-   $('#myTable').DataTable();
+   // $('#myTable').DataTable();
 })
 
 var i = 0;
