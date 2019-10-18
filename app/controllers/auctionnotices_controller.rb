@@ -50,13 +50,21 @@ class AuctionnoticesController < ApplicationController
      @auctionnotices = Auctionnotice.where(status: 2)
   end
 
+  def joined
+     @auctionnotices = Auctionnotice.where(status: 3)
+  end
+
   def action_rejection
       auction = Auctionnotice.find(params[:id])
       auction.update(status: 2)
-      redirect_to auctionnotices_rejected_path
+      redirect_to auctionnotices_pending_path
   end
 
- 
+  def action_joined
+    auction = Auctionnotice.find(params[:id])
+    auction.update(status: 3)
+    redirect_to auctionnotices_joined_path
+  end
 
   private
 

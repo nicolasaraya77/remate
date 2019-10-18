@@ -1,14 +1,16 @@
 <%= link_to 'Listado Avisos Seleccionados', auctionnotices_selected_path %>
 
-<h1>Propiedades con Aviso Remate</h1>
+<h1>Listado Aviso Remate</h1>
 
 <table id="myTable" class="table">
   <thead>
     <tr>
       <th>Nº</th>
-      
+
       <th>Fecha</th>
       <th>Hora</th>
+      <th>Tribunal</th>
+      <th>Rol</th>
       <th>Propiedad</th>
       <th>Opciones</th>
 
@@ -23,7 +25,12 @@
 
       <tr>
         <td><%= i + 1 %></td>
+        <td><%= auction.date %></td>
+        <td><%= auction.hour %></td>
+        <td><%= auction.court.name %></td>
+        <td><%= auction.rol_trial %></td>
         <td><%= auction.realty.address %></td>
+
 
         <td>
           <%= link_to 'Show', auction %>
@@ -37,5 +44,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Auction', new_auction_path %>

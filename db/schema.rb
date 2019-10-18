@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_091050) do
+ActiveRecord::Schema.define(version: 2019_10_18_182701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_091050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "minimum"
+    t.integer "status"
     t.index ["auctionnotice_id"], name: "index_auctions_on_auctionnotice_id"
     t.index ["court_id"], name: "index_auctions_on_court_id"
     t.index ["realty_id"], name: "index_auctions_on_realty_id"

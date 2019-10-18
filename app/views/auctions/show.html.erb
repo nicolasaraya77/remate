@@ -1,4 +1,20 @@
-<h1>Propiedad en Remate</h1>
 
 
-<%= render 'form' %>
+
+<div>
+  <h2>
+    Remate nº  <%= @auction.id %> : <%= @auction.realty.address %>
+    </h2>
+</div>
+<h4>Informacion del Remate</h4>
+
+
+  <div>
+    Fecha Remate:  <%= @auction.date %>, <%= @auction.hour %>
+  </div>
+   <div>
+     Tribunal: <%= @auction.court.name %>
+   </div>
+  <div>
+     Rol:     <%= @auction.rol_trial %>
+   </div>
