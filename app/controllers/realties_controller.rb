@@ -51,6 +51,7 @@ class RealtiesController < ApplicationController
   end
 
   def edit
+    @realty = Realty.find(params[:id]) 
   end
 
   def update
@@ -64,7 +65,6 @@ class RealtiesController < ApplicationController
   end
 
   def address
-
   end
 
   private

@@ -133,7 +133,6 @@ ActiveRecord::Schema.define(version: 2019_10_18_182701) do
     t.string "unit_estate"
     t.integer "street_type_id"
     t.string "population_villa"
-    t.integer "condominium_id"
     t.integer "apple"
     t.integer "property"
     t.text "name_realty"
@@ -163,7 +162,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_182701) do
     t.datetime "updated_at", null: false
     t.integer "role", default: 4
     t.string "name"
-    t.float "Latitude"
+    t.float "latitude"
     t.float "longitude"
     t.string "address"
     t.string "provider"

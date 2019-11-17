@@ -18,9 +18,12 @@ class AuctionsController < ApplicationController
   end
 
   def show
+    @auction = Auctionnotice.find(params[:id])
   end
 
   def edit
+    @auction = Auction.find(params[:id])
+
   end
 
   def update
@@ -37,20 +40,41 @@ class AuctionsController < ApplicationController
       auction = Auctionnotice.find(params[:id])
   end
 
-  private
+  def in_progress
+     @auctions = Auction.where(status: 0)
+  end
 
-  def auction_params
-    params.require(:auction).permit(:name, :date, :hour, :fee, :warranty, :minimum, :total_minimum, :cost, :uf, :pesos, :court_id, :lyrics, :number, :year, :realty_id, :auctionnotice_id )
+  def suspendend
+     @auctions = Auction.where(status: 1)
+  end
+
+  def discarded
+     @auctions = Auction.where(status: 2)
   end
 
 
+  def auctions_in_progress
+      auction = Auction.find(params[:id])
+      auction.update(status: 0)
+      redirect_to auctions_path
+  end
 
+  def auctions_suspendend
+      auction = Auction.find(params[:id])
+      auction.update(status: 1)
+      redirect_to auctions_path
+  end
 
+  def auctions_discarded
+      auction = Auction.find(params[:id])
+      auction.update(status: 2)
+      redirect_to auctions_path
+  end
 
+  private
 
-
-
-
-
+  def auction_params
+    params.require(:auction).permit(:name, :date, :hour, :fee, :warranty, :minimum, :total_minimum, :cost, :uf, :pesos, :court_id, :lyrics, :number, :year, :realty_id, :auctionnotice_id, :status)
+  end
 
 end

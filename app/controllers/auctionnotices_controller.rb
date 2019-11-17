@@ -20,6 +20,8 @@ class AuctionnoticesController < ApplicationController
   end
 
   def edit
+    @auctionnotice = Auctionnotice.find(params[:id])
+
   end
 
   def update
@@ -69,7 +71,7 @@ class AuctionnoticesController < ApplicationController
   private
 
   def auctionnotice_params
-    params.require(:auctionnotice).permit(:name, :status)
+    params.require(:auctionnotice).permit(:name, :status, :auction)
   end
 
 end

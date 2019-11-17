@@ -7,7 +7,7 @@ class CreateRealties < ActiveRecord::Migration[5.2]
       t.string :unit_estate
       t.integer :street_type_id
       t.string :population_villa
-      t.integer :condominium_id
+      
       t.integer :property_type
       t.integer :apple
       t.integer :property

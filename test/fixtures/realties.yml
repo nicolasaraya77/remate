@@ -7,7 +7,6 @@ one:
   unit_estate: MyString
   street_type_id: 1
   population_villa: MyString
-  condominium_id: 1
   property_type: 1
   apple: 1
   property: 1
@@ -24,7 +23,6 @@ two:
   unit_estate: MyString
   street_type_id: 1
   population_villa: MyString
-  condominium_id: 1
   property_type: 1
   apple: 1
   property: 1

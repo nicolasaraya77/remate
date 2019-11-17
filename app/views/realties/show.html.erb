@@ -1,3 +1,6 @@
+
+
+
 <h1>Ficha Propiedad</h1>
 
 <div>
@@ -39,3 +42,32 @@ handler.buildMap({
 }
 );
 </script>
+
+    <div>
+      <h4> Poblacion, Villa , Conjunto</h4>
+      <%= @realty.population_villa %>
+    </div>
+
+    <div>
+      <h4>Rol Avaluo</h4>
+      <%= @realty.appraisal_role %>
+    </div>
+
+
+  <div>
+    <h4>Latitud</h4>
+      <%= @realty.latitude %>
+  </div>
+  <p></p>
+  <div>
+    <h4>Longitud</h4>
+      <%= @realty.longitude %>
+  </div>
+
+
+  <div>
+    <h4>Construido mt2 </h4>
+    <%= @realty.mt2_built %>
+    <h4>Terreno mt2 </h4>
+    <%= @realty.mt2_land %>
+  </div>

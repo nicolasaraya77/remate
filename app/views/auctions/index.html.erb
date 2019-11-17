@@ -12,6 +12,9 @@
       <th>Tribunal</th>
       <th>Rol</th>
       <th>Propiedad</th>
+      <th>Minimo</th>
+      <th>Garantia</th>
+      <th>Derechos</th>
       <th>Opciones</th>
 
     </tr>
@@ -30,7 +33,9 @@
         <td><%= auction.court.name %></td>
         <td><%= auction.rol_trial %></td>
         <td><%= auction.realty.address %></td>
-
+        <td><%= auction.total_minimum %></td>
+        <td><%= auction.warranty %></td>
+        <td><%= auction.fee %></td>
 
         <td>
           <%= link_to 'Show', auction %>

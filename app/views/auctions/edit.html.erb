@@ -1,6 +1,6 @@
-<h1>  Asociar Aviso de Remate a Propiedad </h1>
+<h1>  Editar Aviso de Remate a Propiedad </h1>
 
-<%= form_with model: Auction.new  do |form| %>
+<%= form_with model: @auction  do |form| %>
   <%= form.label :name, "Seleccion de Avisos de Remate" %>
 
   <div class="field">
@@ -39,9 +39,49 @@
     <%= form.number_field :year, id: :year %>
   </div>
 
+  <div class="field">
+    <%= form.label :warranty, "Garantia" %>
+    <%= form.number_field :warranty, id: :warranty %>
+  </div>
 
   <div class="field">
-    <%= form.hidden_field :auctionnotice_id, value: @auctionnotice.id %>
+    <%= form.label :cost, "Costa" %>
+    <%= form.number_field :cost, id: :cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_uf, "Opcion" %>
+    <%= form.select :is_uf, [["uf", true], ["pesos", false]], {include_blank: "Seleccione Moneda"}, {onchange: "habilite_money(this)"} %>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= form.label :uf, "UF" %>
+    <%= form.number_field :uf, id: :uf, disabled: @auction.uf.nil?, 'data-loquesea': 28000, onchange: "calculo_uf(this)"  %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :pesos, "Pesos" %>
+    <%= form.number_field :pesos, id: :pesos, disabled: @auction.pesos.nil?, onchange: "calculo_uf(this)" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_minimum, "Total Minimo" %>
+    <%= form.number_field :total_minimum, id: :total_minimum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fee, "Derechos" %>
+    <%= form.number_field :fee, id: :fee %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.hidden_field :auctionnotice_id, value: @auction.auctionnotice_id %>
   </div>
 
   <div class="field">
@@ -83,6 +123,6 @@
 <div>
 
 
-<%= @auctionnotice.id%>
-<%= @auctionnotice.auction %>
+<%= @auction.auctionnotice_id%>
+<%= @auction %>
 </div>
