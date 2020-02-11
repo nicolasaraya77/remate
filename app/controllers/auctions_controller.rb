@@ -18,7 +18,8 @@ class AuctionsController < ApplicationController
   end
 
   def show
-    @auction = Auctionnotice.find(params[:id])
+    @auction = Auction.find(params[:id])
+    
   end
 
   def edit

@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= form.label :court_id, "Seleccionar Tribunal" %>
-    <%= form.select :court_id, options_for_select(Court.all.collect {|p| [p.name, p.id]}), { include_blank: "Seleccione"} %>
+    <%= form.select :court_id, options_for_select(Court.all.collect {|p| [p.name, p.id]}, @auction.court_id), { include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">
@@ -45,7 +45,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :cost, "Costa" %>
+    <%= form.label :cost, "Costas" %>
     <%= form.number_field :cost, id: :cost %>
   </div>
 
@@ -86,7 +86,7 @@
 
   <div class="field">
     <%= form.label :realty_id, "Seleccionar Propiedad" %>
-    <%= form.select :realty_id, options_for_select(Realty.all.collect {|p| [p.address, p.id]}), { include_blank: "Seleccione"} %>
+    <%= form.select :realty_id, options_for_select(Realty.all.collect {|p| [p.address, p.id]}, @auction.realty_id), { include_blank: "Seleccione"} %>
   </div>
 
 
@@ -123,6 +123,6 @@
 <div>
 
 
-<%= @auction.auctionnotice_id%>
-<%= @auction %>
+<%= @auction.id %>
+<%= @auction.auctionnotice.auction %>
 </div>

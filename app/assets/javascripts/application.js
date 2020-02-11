@@ -22,4 +22,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery/dist/jquery
+//= require moment/moment
+//= require fullcalendar/dist/fullcalendar
 //= require_tree .
