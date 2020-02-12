@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem 'jquery-datatables'
 
 gem 'cancancan'
 # Use jQuery
