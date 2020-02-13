@@ -73,11 +73,8 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
   gem 'rails_12factor' , '0.0.2'
 
-<<<<<<< current
-=======
 end
 
->>>>>>> before discard
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
