@@ -20,7 +20,7 @@ gem 'gmaps4rails'
 gem 'activeadmin'
 gem 'rails-i18n'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'bootstrap-datepicker-rails'
 
 gem 'chartkick'
