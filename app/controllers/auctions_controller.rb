@@ -19,11 +19,15 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
-    
+
   end
 
   def edit
     @auction = Auction.find(params[:id])
+
+    sum_total_minimun
+
+
 
   end
 
@@ -71,6 +75,18 @@ class AuctionsController < ApplicationController
       auction.update(status: 2)
       redirect_to auctions_path
   end
+
+  def sum_total_minimun
+    @auction.uf ||= 0
+    @auction.cost ||= 0
+    @auction.total_minimum = @auction.cost + @auction.pesos
+
+  end
+
+
+
+
+
 
   private
 
