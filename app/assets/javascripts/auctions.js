@@ -38,6 +38,7 @@ function habilite_money(selector){
      //acceso a valor de la uf a la fecha.
      var lista = data.serie;
      var uf = lista[0].valor;
+     
 
      //setter de valores para calculo de uf a pesos
      if (inp.attr('id') == 'uf'){
